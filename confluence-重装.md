@@ -33,8 +33,12 @@ Where should Confluence 6.10.1 be installed?
 #2）找到，或者下载： 
 $ find / -name atlassian-agent.jar 2>>/dev/null
 -> /usr/local/atlassian-agent/atlassian-agent.jar
+
 #/opt/atlassian/confluence/bin/setenv.sh 
+#添加破解程序的包路径
 CATALINA_OPTS="-javaagent:/usr/local/atlassian-agent/atlassian-agent.jar ${CATALINA_OPTS}"
+#配置服务的可用内存范围：最小2G,最大3G
+CATALINA_OPTS="-Xms2048m -Xmx3072m -XX:+UseG1GC ${CATALINA_OPTS}"
 
 
 #3）拷贝 MYSQL 驱动文件包，到安装目录
